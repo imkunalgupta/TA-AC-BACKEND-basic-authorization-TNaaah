@@ -80,7 +80,7 @@ router.post('/:id', (req, res, next) => {
 //delete article
 router.get('/:id/delete', (req, res, next) => {
   var id = req.params.id;
-  if (req.author.id === id) {
+  if (req.register.id === id) {
     Article.findByIdAndDelete(id, (err, article) => {
       if (err) return next(err);
       Comment.deleteMany({ articleId: article.id }, (err, info) => {
@@ -92,12 +92,11 @@ router.get('/:id/delete', (req, res, next) => {
     res.redirect('/articles');
   }
 });
-
 //adding comments
 router.post('/:id/comments', (req, res, next) => {
   var id = req.params.id;
   req.body.articleId = id;
-  Comment.create(req.body, (err, comment) => {
+  Comment.create(req.body, (err, mment) => {
     if (err) return next(err);
     Article.findByIdAndUpdate(
       id,
