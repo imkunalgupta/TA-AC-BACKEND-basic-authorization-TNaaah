@@ -1,0 +1,21 @@
+<% include partials/header.ejs %>
+<h1>Users</h1>
+<div class="articles users">
+  <% users.forEach(user => { %>
+  <div class="user-item">
+    <p>Name: <%= user.name %></p>
+    <p>Email: <%= user.email %></p>
+    <p>Admin User: <%= user.isAdmin %></p>
+    <div class="comment-btns">
+      <% if(!user.isAdmin) { %> <% if(user.isBlocked) { %>
+      <a href="/users/<%= user.id %>/unblock" class="btn unblock-btn"
+        >Unblock</a
+      >
+      <% } else { %>
+      <a href="/users/<%= user.id %>/block" class="btn block-btn">Block</a>
+      <% } %> <% } %>
+    </div>
+  </div>
+  <% }) %>
+</div>
+<% include partials/footer.ejs %>
