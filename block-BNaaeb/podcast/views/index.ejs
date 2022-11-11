@@ -1,0 +1,16 @@
+<%- include('partials/header') -%>
+<h1 class="page-title">Welcome to Podcast App</h1>
+<p class="main">
+  <% if(!user) { %> Please <a href="/users/login">Login</a> or
+  <a href="/users/register">Register</a> in order to access our wide collection
+  of podcasts! <% } else { %>
+    <div class="btns flex">
+      <a href="/podcasts" class="btn">View Podcasts</a>
+      <a href="/podcasts/new" class="btn">Create a Podcast</a>
+      <% if(user.isAdmin) { %>
+      <a href="/podcasts/approve" class="btn">Approve Podcasts</a>
+      <% } %>
+      <a href="/podcasts/user/<%= user.id %>" class="btn">My Podcasts</a>
+    </div>
+  <% } %>
+</p>
