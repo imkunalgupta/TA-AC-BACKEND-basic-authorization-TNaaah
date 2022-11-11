@@ -1,0 +1,135 @@
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  line-height: 1.5;
+  background: linear-gradient(
+    to right,
+    rgb(227, 235, 238),
+    rgb(243, 221, 243),
+    rgb(217, 205, 226)
+  );
+  background-size: cover;
+  text-align: center;
+  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+}
+
+.container {
+  max-width: 1330px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-30 {
+  flex: 1 1 30%;
+  margin: 0.5rem;
+}
+
+.flex-60 {
+  flex: 1 1 60%;
+  margin: 0.5rem;
+}
+
+.jc-between {
+  justify-content: space-between;
+}
+
+.jc-center {
+  justify-content: center;
+}
+
+.jc-around {
+  justify-content: space-around;
+}
+
+.ai-center {
+  align-items: center;
+}
+
+.ai-start {
+  align-items: flex-start;
+}
+
+.align-left {
+  padding: 2rem;
+  margin: 1rem;
+  text-align: left;
+  background-color: rgb(195, 168, 221);
+  border-radius: 1rem;
+}
+
+header {
+  background-color: rgb(171, 178, 184);
+  padding: 1.5rem;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.btn {
+  border: none;
+  padding: 0.5rem 0.8rem;
+  margin: 0.3rem;
+  background-color: gray;
+  color: white;
+}
+
+.edit {
+  background-color: rgb(86, 165, 86);
+  color: black;
+}
+
+.edit:hover {
+  background-color: green;
+  color: white;
+}
+
+.delete {
+  background-color: red;
+  color: black;
+}
+
+.delete:hover {
+  background-color: orangered;
+  color: white;
+}
+
+button {
+  border: none;
+  padding: 0.3rem 0.6rem;
+  background-color: steelblue;
+  color: white;
+  margin-top: 0.8rem;
+}
+
+form {
+  width: 350px;
+  border: 1px solid black;
+  padding: 0.8rem;
+  margin: 2rem auto;
+  background-color: blanchedalmond;
+}
+
+input,
+textarea {
+  padding: 0.3rem;
+  margin: 0.5rem;
+  width: 80%;
+  outline: none;
+}
+
+.red {
+  color: red;
+  font-size: 400;
+}
