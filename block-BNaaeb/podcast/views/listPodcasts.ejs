@@ -1,0 +1,32 @@
+<%- include('partials/header') -%>
+<h1 class="page-title">Podcasts</h1>
+<div class="container">
+  <div class="podcasts">
+    <% if(!podcasts.length) { %>
+    <h4>No Podcasts Present</h4>
+    <% } else { %> <% podcasts.forEach(podcast => { %>
+    <div>
+      <div class="podcast-item">
+        <p class="podcast-title"><%= podcast.name %></p>
+        <p class="podcast-info">Created By: <%= podcast.createdBy.name %></p>
+        <audio controls src="/uploads/<%= podcast.audio %>"></audio>
+        <div class="podcast-controls">
+          <% if(user.isAdmin) { %> <% if(!podcast.isApproved) { %>
+          <a href="/podcasts/<%= podcast.id %>/approve" class="btn-podcast"
+            >Approve</a
+          >
+          <%}%>
+          <a href="/podcasts/<%= podcast.id %>/edit" class="btn-podcast"
+            >Edit</a
+          >
+          <a href="/podcasts/<%= podcast.id %>/delete" class="btn-podcast"
+            >Delete</a
+          >
+          <% } %>
+        </div>
+      </div>
+    </div>
+    <% }) %> <% } %>
+  </div>
+</div>
+<%- include('partials/footer') -%>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <script
+      src="https://kit.fontawesome.com/7d51f361a6.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>PodcastApp</title>
+  </head>
+  <body>
+    <header class="header flex">
+      <a href="/">
+        <img class="logo" src="/images/podcastLogo.png" />
+      </a>
+      <label class="bars" for="toggle">
+        <i class="fas fa-bars"></i>
+      </label>
+      <input type="checkbox" id="toggle" />
+      <nav class="nav">
+        <ul class="flex">
+          <% if(user && user.isAdmin ) { %>
+          <li><a href="/podcasts">View</a>></li>
+          <li><a href="/podcasts/new">Create</a></li>
+          <li><a href="/podcasts/approve">Approve</a></li>
+          <li><a href="/podcasts/user/<%= user.id %>">My Podcasts</a></li>
+          <li><a href="/users/logout">Logout</a></li>
+          <% } else if (user) { %>
+          <li><a href="/podcasts">View</a></li>
+          <li><a href="/podcasts/new">Create</a></li>
+          <li><a href="/podcasts/user/<%= user.id %>">My Podcasts</a></li>
+          <li><a href="/users/logout">Logout</a></li>
+          <% } else { %>
+          <li><a href="/users/login">Login</a></li>
+          <li><a href="/users/register">Register</a></li>
+          <% } %>
+        </ul>
+      </nav>
+    </header>
+  </body>
+</html>
