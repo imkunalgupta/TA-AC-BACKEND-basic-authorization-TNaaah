@@ -1,0 +1,15 @@
+<%- include('partials/header') -%>
+<h1 class="page-title">Welcome, <%= user.name %></h1>
+<div>
+  <% if(error) { %>
+  <p class="error"><%= error %></p>
+  <% } %>
+</div>
+<div class="btns flex">
+  <a href="/podcasts" class="btn">View Podcasts</a>
+  <a href="/podcasts/new" class="btn">Create a Podcast</a>
+  <% if(user.isAdmin) { %>
+  <a href="/podcasts/approve" class="btn">Approve Podcasts</a>
+  <% } %>
+  <a href="/podcasts/user/<%= user.id %>" class="btn">My Podcasts</a>
+</div>

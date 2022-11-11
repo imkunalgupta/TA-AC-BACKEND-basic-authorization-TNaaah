@@ -1,0 +1,33 @@
+<%- include('partials/header') -%>
+<h1 class="page-title">Podcasts</h1>
+<div class="container">
+  <div class="podcasts">
+    <% if(!podcasts.length) { %>
+    <h4>No Podcasts Present</h4>
+    <% } else { %> <% podcasts.forEach(podcast => { %>
+    <div class="podcast-item">
+      <div class="podcast-title flex">
+        <p><%= podcast.name %></p>
+        <% if(podcast.isApproved) { %>
+        <img
+          class="podcast-status"
+          src="/images/check.png"
+          alt="Approved Podcast"
+          title="Approved"
+        />
+        <% } else {%>
+        <img
+          class="podcast-status"
+          src="/images/exclamation-mark.png"
+          alt="Pending for Approval"
+          title="Pending for Approval"
+        />
+        <% } %>
+      </div>
+      <p class="podcast-info">Created By: <%= podcast.createdBy.name %></p>
+      <audio controls src="/uploads/<%= podcast.audio %>"></audio>
+    </div>
+    <% }) %> <% } %>
+  </div>
+</div>
+<%- include('partials/footer') -%>
